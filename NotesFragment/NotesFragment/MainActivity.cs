@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Runtime;
 using Android.Widget;
+using Android.Views;
 
 namespace NotesFragment
 {
@@ -21,6 +22,10 @@ namespace NotesFragment
 
             DatabaseService dbService = new DatabaseService();
             dbService.CreateTableWithData();
+
+            var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            SetActionBar(toolbar);
+            ActionBar.Title = "Notebook";
         }
     }
 }

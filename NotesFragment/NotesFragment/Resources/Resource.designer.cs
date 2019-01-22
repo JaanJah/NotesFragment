@@ -3778,6 +3778,9 @@ namespace NotesFragment
 			// aapt resource value: 0x7f0a0161
 			public const int Base_Widget_Design_TabLayout = 2131362145;
 			
+			// aapt resource value: 0x7f0a0181
+			public const int MyTheme = 2131362177;
+			
 			// aapt resource value: 0x7f0a001e
 			public const int Platform_AppCompat = 2131361822;
 			
