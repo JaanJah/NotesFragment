@@ -7,7 +7,7 @@
 	android:layout_width="match_parent"
     android:layout_height="match_parent">
 	<fragment
-		android:name="FragmentSample.TitlesFragment"
+		android:name="NotesFragment.TitlesFragment"
 		android:id="@+id/titles"
 		android:layout_weight="1"
 		android:layout_width="0px"

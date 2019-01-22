@@ -53,9 +53,31 @@ namespace NotesFragment
 
         private void ShowPlayNote(int playId)
         {
-            var intent = new Intent(Activity, typeof(PlayNoteActivity));
-            intent.PutExtra("current_play_id", playId);
-            StartActivity(intent);
+            selectedPlayId = playId;
+
+            if (showingTwoFragments)
+            {
+                ListView.SetItemChecked(selectedPlayId, true);
+
+                var playNoteFragment = FragmentManager.FindFragmentById(Resource.Id.playnote_container)
+                    as PlayNoteFragment;
+
+                if (playNoteFragment == null || playNoteFragment.PlayId != playId)
+                {
+                    var container = Activity.FindViewById(Resource.Id.playnote_container);
+                    var quoteFrag = PlayNoteFragment.NewInstance(selectedPlayId);
+
+                    FragmentTransaction ft = FragmentManager.BeginTransaction();
+                    ft.Replace(Resource.Id.playnote_container, quoteFrag);
+                    ft.Commit();
+                }
+            }
+            else
+            {
+                var intent = new Intent(Activity, typeof(PlayNoteActivity));
+                intent.PutExtra("current_play_id", playId);
+                StartActivity(intent);
+            }
         }
 
         public override void OnListItemClick(ListView l, View v, int position, long id)

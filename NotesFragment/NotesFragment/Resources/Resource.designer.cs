@@ -2636,8 +2636,8 @@ namespace NotesFragment
 			// aapt resource value: 0x7f08004d
 			public const int pin = 2131230797;
 			
-			// aapt resource value: 0x7f08008d
-			public const int playnote_container = 2131230861;
+			// aapt resource value: 0x7f08008c
+			public const int playnote_container = 2131230860;
 			
 			// aapt resource value: 0x7f080006
 			public const int progress_circular = 2131230726;
@@ -2834,8 +2834,8 @@ namespace NotesFragment
 			// aapt resource value: 0x7f080013
 			public const int transition_transform = 2131230739;
 			
-			// aapt resource value: 0x7f08008c
-			public const int two_fragments_layout = 2131230860;
+			// aapt resource value: 0x7f08008d
+			public const int two_fragments_layout = 2131230861;
 			
 			// aapt resource value: 0x7f08002d
 			public const int uniform = 2131230765;
