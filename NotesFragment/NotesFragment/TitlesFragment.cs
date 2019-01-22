@@ -55,7 +55,6 @@ namespace NotesFragment
         private void ShowPlayNote(int playId)
         {
             selectedPlayId = playId;
-            //If showing 1 fragment this is still true for some reason.
             if (showingTwoFragments)
             {
                 ListView.SetItemChecked(selectedPlayId, true);

@@ -9,6 +9,10 @@ namespace NotesFragment
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
+        //TODO: When showing note's content, it should also show title.
+        //TODO: Toolbar button for adding a note.
+        //TODO: Toolbar button for deleteing a note.
+        //TODO: Toolbar button for editing a note.
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
