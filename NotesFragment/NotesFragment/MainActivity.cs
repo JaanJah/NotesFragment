@@ -14,6 +14,9 @@ namespace NotesFragment
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
+
+            DatabaseService dbService = new DatabaseService();
+            dbService.CreateTableWithData();
         }
     }
 }

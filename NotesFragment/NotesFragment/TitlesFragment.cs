@@ -18,6 +18,12 @@ namespace NotesFragment
         int selectedPlayId;
         bool showingTwoFragments;
         DatabaseService dbService;
+
+        public TitlesFragment()
+        {
+            dbService = new DatabaseService();
+        }
+
         public override void OnActivityCreated(Bundle savedInstanceState)
         {
             base.OnActivityCreated(savedInstanceState);
@@ -31,32 +37,36 @@ namespace NotesFragment
             }
 
             var notes = dbService.GetAllNotes();
-            var arrayLength = notes.Count();
-            string[] titles = new string[arrayLength];
-            foreach (var item in notes)
+            List<string> items = new List<string>();
+            foreach (var note in notes)
             {
-                titles.Append(item.Title);
+                items.Add(note.Title);
             }
 
             ListAdapter = new ArrayAdapter<string>(Activity,
                 Android.Resource.Layout.SimpleListItemActivated1,
-                titles);
+                items);
 
             if (savedInstanceState != null)
                 selectedPlayId = savedInstanceState.GetInt("current_play_id", 0);
         }
 
-        public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-        {
-            // Use this to return your custom view for this Fragment
-            // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
-
-            return base.OnCreateView(inflater, container, savedInstanceState);
-        }
-
         private void ShowPlayNote(int playId)
         {
+            var intent = new Intent(Activity, typeof(PlayNoteActivity));
+            intent.PutExtra("current_play_id", playId);
+            StartActivity(intent);
+        }
 
+        public override void OnListItemClick(ListView l, View v, int position, long id)
+        {
+            ShowPlayNote(position);
+        }
+
+        public override void OnSaveInstanceState(Bundle outState)
+        {
+            base.OnSaveInstanceState(outState);
+            outState.PutInt("current_play_id", selectedPlayId);
         }
     }
 }
