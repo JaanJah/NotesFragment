@@ -29,12 +29,6 @@ namespace NotesFragment
             base.OnActivityCreated(savedInstanceState);
 
             var noteContainer = Activity.FindViewById(Resource.Id.playnote_container);
-            showingTwoFragments = noteContainer != null && noteContainer.Visibility == ViewStates.Visible;
-            if (showingTwoFragments)
-            {
-                ListView.ChoiceMode = ChoiceMode.Single;
-                ShowPlayNote(selectedPlayId);
-            }
 
             var notes = dbService.GetAllNotes();
             List<string> items = new List<string>();
@@ -49,12 +43,19 @@ namespace NotesFragment
 
             if (savedInstanceState != null)
                 selectedPlayId = savedInstanceState.GetInt("current_play_id", 0);
+
+            showingTwoFragments = noteContainer != null && noteContainer.Visibility == ViewStates.Visible;
+            if (showingTwoFragments)
+            {
+                ListView.ChoiceMode = ChoiceMode.Single;
+                ShowPlayNote(selectedPlayId);
+            }
         }
 
         private void ShowPlayNote(int playId)
         {
             selectedPlayId = playId;
-
+            //If showing 1 fragment this is still true for some reason.
             if (showingTwoFragments)
             {
                 ListView.SetItemChecked(selectedPlayId, true);
