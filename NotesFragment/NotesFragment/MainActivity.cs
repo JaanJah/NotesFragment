@@ -7,8 +7,8 @@ using Android.Views;
 
 namespace NotesFragment
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
-    public class MainActivity : AppCompatActivity
+    [Activity(Label = "@string/app_name", Theme = "@style/MyTheme", MainLauncher = true)]
+    public class MainActivity : Activity
     {
         //TODO: When showing note's content, it should also show title.
         //TODO: Toolbar button for adding a note.
@@ -26,6 +26,19 @@ namespace NotesFragment
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(toolbar);
             ActionBar.Title = "Notebook";
+        }
+
+        public override bool OnCreateOptionsMenu(IMenu menu)
+        {
+            MenuInflater.Inflate(Resource.Menu.top_menus, menu);
+            return base.OnCreateOptionsMenu(menu);
+        }
+
+        public override bool OnOptionsItemSelected(IMenuItem item)
+        {
+            Toast.MakeText(this, "Action selected: " + item.TitleFormatted,
+                ToastLength.Short).Show();
+            return base.OnOptionsItemSelected(item);
         }
     }
 }
