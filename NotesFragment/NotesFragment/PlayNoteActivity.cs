@@ -19,10 +19,12 @@ namespace NotesFragment
         {
             base.OnCreate(savedInstanceState);
 
+
             if (Resources.Configuration.Orientation == Android.Content.Res.Orientation.Landscape)
                 Finish();
 
             var playId = Intent.Extras.GetInt("current_play_id", 0);
+
 
             var detailsFrag = PlayNoteFragment.NewInstance(playId);
             FragmentManager.BeginTransaction()
