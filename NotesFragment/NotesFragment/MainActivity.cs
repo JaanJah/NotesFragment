@@ -8,10 +8,11 @@ using System;
 
 namespace NotesFragment
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/MyTheme", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : Activity
     {
         //TODO: When showing note's content, it should also show title.
+        //TODO: Toolbar in singlefragment view
         //TODO: Toolbar button for adding a note.
         //TODO: Toolbar button for deleteing a note.
         //TODO: Toolbar button for editing a note.
