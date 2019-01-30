@@ -18,17 +18,19 @@ namespace NotesFragment
     {
         public SQLiteConnection db;
         public static List<Notes> noteList { get; set; }
+        public static DatabaseService dbConnection { get; set; }
 
         public DatabaseService()
         {
-            string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "notesDb.db3");
-            db = new SQLiteConnection(dbPath);
+            CreateDatabase();
+            CreateTableWithData();
             noteList = GetAllNotes().ToList();
         }
 
         public void CreateDatabase()
         {
-            db.CreateTable<Notes>();
+            string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "notesDb.db3");
+            db = new SQLiteConnection(dbPath);
         }
 
         public void AddNote(Notes note)
@@ -47,8 +49,10 @@ namespace NotesFragment
             return table.ToList();
         }
 
-        public void DeleteNote(Notes note)
+        public void DeleteNote(int id)
         {
+            var note = new Notes();
+            note.Id = id;
             db.Delete(note);
         }
 

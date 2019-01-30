@@ -2600,11 +2600,11 @@ namespace NotesFragment
 			// aapt resource value: 0x7f0800b7
 			public const int menu_add = 2131230903;
 			
+			// aapt resource value: 0x7f0800b9
+			public const int menu_delete = 2131230905;
+			
 			// aapt resource value: 0x7f0800b8
 			public const int menu_edit = 2131230904;
-			
-			// aapt resource value: 0x7f0800b9
-			public const int menu_preferences = 2131230905;
 			
 			// aapt resource value: 0x7f0800b4
 			public const int message = 2131230900;

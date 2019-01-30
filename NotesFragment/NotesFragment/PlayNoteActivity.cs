@@ -16,6 +16,7 @@ namespace NotesFragment
     [Activity(Label = "", Theme = "@style/AppTheme.NoActionBar")]
     public class PlayNoteActivity : AppCompatActivity
     {
+        private int PlayId { get; set; }
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -23,13 +24,14 @@ namespace NotesFragment
             if (Resources.Configuration.Orientation == Android.Content.Res.Orientation.Landscape)
                 Finish();
 
+            DatabaseService.dbConnection = new DatabaseService();
             SetContentView(Resource.Layout.note_view);
             Android.Support.V7.Widget.Toolbar toolbar = FindViewById<Android.Support.V7.Widget.Toolbar>(Resource.Id.toolbar2);
             SetSupportActionBar(toolbar);
-            var playId = Intent.Extras.GetInt("current_play_id", 0);
+            PlayId = Intent.Extras.GetInt("current_play_id", 0);
 
             var editText = FindViewById<EditText>(Resource.Id.contentEditText);
-            editText.Text = DatabaseService.noteList[playId].Note;
+            editText.Text = DatabaseService.noteList[PlayId].Note;
             //var detailsFrag = PlayNoteFragment.NewInstance(playId);
             //FragmentManager.BeginTransaction()
             //    .Add(Android.Resource.Id.Content, detailsFrag)
@@ -44,23 +46,43 @@ namespace NotesFragment
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            Toast.MakeText(this, "Action selected: " + item.TitleFormatted,
-                ToastLength.Short).Show();
             switch (item.ItemId)
             {
                 //Add
-                case 2131230900:
+                case Resource.Id.menu_add:
                     break;
                 //Edit
-                case 2131230901:
+                case Resource.Id.menu_edit:
                     break;
                 //Delete
-                case 2131230902:
+                case Resource.Id.menu_delete:
+                    DeleteDialog();
                     break;
                 default:
                     break;
             }
             return base.OnOptionsItemSelected(item);
         }
+
+        public void DeleteDialog()
+        {
+            Android.App.AlertDialog.Builder dialog = new Android.App.AlertDialog.Builder(this);
+            Android.App.AlertDialog alert = dialog.Create();
+            alert.SetTitle("Warning");
+            alert.SetMessage("Are you sure you want to delete this note?");
+            alert.SetButton("Delete", (c, ev) =>
+            {
+                DatabaseService.dbConnection.DeleteNote(DatabaseService.noteList[PlayId].Id);
+                DatabaseService.noteList.RemoveAt(PlayId);
+                MainActivity._mainActivity.Recreate();
+                Finish();
+            });
+            alert.SetButton2("Cancel", (c, ev) =>
+            {
+                return;
+            });
+            alert.Show();
+        }
+
     }
 }

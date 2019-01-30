@@ -15,7 +15,7 @@
        android:showAsAction="always"
        android:title="Edit" />
   <item
-       android:id="@+id/menu_preferences"
+       android:id="@+id/menu_delete"
        app:showAsAction="always"
        android:showAsAction="always"
        android:icon="@mipmap/baseline_delete_sweep_black_18dp"

@@ -11,9 +11,10 @@ namespace NotesFragment
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
     public class MainActivity : Activity
     {
+        public Bundle _savedInstanceState { get; set; }
+        public static MainActivity _mainActivity { get; set; }
         //TODO: When showing note's content, it should also show title.
         //TODO: Toolbar button for adding a note.
-        //TODO: Toolbar button for deleteing a note.
         //TODO: Toolbar button for editing a note.
         //TODO: Color solution for project.
         //TODO: Icon for project.
@@ -21,16 +22,17 @@ namespace NotesFragment
         //TODO: Upload to appcenter
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            _mainActivity = this;
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.activity_main);
 
-            DatabaseService dbService = new DatabaseService();
-            dbService.CreateTableWithData();
+            DatabaseService.dbConnection = new DatabaseService();
 
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
             SetActionBar(toolbar);
             ActionBar.Title = "Notebook";
+            _mainActivity = this;
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -41,18 +43,16 @@ namespace NotesFragment
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
-            Toast.MakeText(this, "Action selected: " + item.TitleFormatted,
-                ToastLength.Short).Show();
             switch (item.ItemId)
             {
                 //Add
-                case 2131230900:
+                case Resource.Id.menu_add:
                     break;
                 //Edit
-                case 2131230901:
+                case Resource.Id.menu_edit:
                     break;
                 //Delete
-                case 2131230902:
+                case Resource.Id.menu_delete:
                     DeleteDialog();
                     break;
                 default:
@@ -69,11 +69,13 @@ namespace NotesFragment
             alert.SetMessage("Are you sure you want to delete this note?");
             alert.SetButton("Delete", (c, ev) =>
             {
-                //Delete note
+                DatabaseService.dbConnection.DeleteNote(DatabaseService.noteList[PlayNoteFragment.StaticPlayId].Id);
+                DatabaseService.noteList.RemoveAt(PlayNoteFragment.StaticPlayId);
+                this.Recreate();
             });
             alert.SetButton2("Cancel", (c, ev) =>
             {
-                //Cancel
+                return;
             });
             alert.Show();
         }

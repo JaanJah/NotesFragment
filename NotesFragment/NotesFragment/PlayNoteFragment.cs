@@ -16,6 +16,9 @@ namespace NotesFragment
     public class PlayNoteFragment : Fragment
     {
         public int PlayId => Arguments.GetInt("current_play_id", 0);
+
+        public static int StaticPlayId { get; set; }
+
         DatabaseService dbService;
 
         public override void OnCreate(Bundle savedInstanceState)
@@ -30,12 +33,14 @@ namespace NotesFragment
             {
                 return null;
             }
-
+            var notes = DatabaseService.dbConnection.GetAllNotes();
+            StaticPlayId = PlayId;
+            List<string> notesList = DatabaseService.noteList.Select(x => x.Note).ToList();
             var textView = new TextView(Activity);
             var padding = Convert.ToInt32(TypedValue.ApplyDimension(ComplexUnitType.Dip, 4, Activity.Resources.DisplayMetrics));
             textView.SetPadding(padding, padding, padding, padding);
             textView.TextSize = 24;
-            textView.Text = dbService.GetAllNotes().ElementAt(PlayId).Note;
+            textView.Text = notesList[PlayId];
 
             var scroller = new ScrollView(Activity);
             scroller.AddView(textView);
