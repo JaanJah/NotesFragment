@@ -16,12 +16,14 @@ namespace NotesFragment
 {
     public class DatabaseService
     {
-        SQLiteConnection db;
+        public SQLiteConnection db;
+        public static List<Notes> noteList { get; set; }
 
         public DatabaseService()
         {
             string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "notesDb.db3");
             db = new SQLiteConnection(dbPath);
+            noteList = GetAllNotes().ToList();
         }
 
         public void CreateDatabase()

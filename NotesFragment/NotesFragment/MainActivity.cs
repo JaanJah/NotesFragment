@@ -12,7 +12,6 @@ namespace NotesFragment
     public class MainActivity : Activity
     {
         //TODO: When showing note's content, it should also show title.
-        //TODO: Toolbar in singlefragment view
         //TODO: Toolbar button for adding a note.
         //TODO: Toolbar button for deleteing a note.
         //TODO: Toolbar button for editing a note.
