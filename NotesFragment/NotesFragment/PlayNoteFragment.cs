@@ -40,7 +40,14 @@ namespace NotesFragment
             var padding = Convert.ToInt32(TypedValue.ApplyDimension(ComplexUnitType.Dip, 4, Activity.Resources.DisplayMetrics));
             textView.SetPadding(padding, padding, padding, padding);
             textView.TextSize = 24;
-            textView.Text = notesList[PlayId];
+            try
+            {
+                textView.Text = notesList[PlayId];
+            }
+            catch
+            {
+                textView.Text = notesList[0];
+            }
 
             var scroller = new ScrollView(Activity);
             scroller.AddView(textView);
