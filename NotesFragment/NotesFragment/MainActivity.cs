@@ -6,6 +6,11 @@ using Android.Widget;
 using Android.Views;
 using System;
 
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Distribute;
+
 namespace NotesFragment
 {
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
@@ -22,6 +27,10 @@ namespace NotesFragment
         //TODO: Upload to appcenter
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            AppCenter.Start("f65919ed-f2d3-4310-a9f3-fca76e53b9cb", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("f65919ed-f2d3-4310-a9f3-fca76e53b9cb", typeof(Distribute));
+            //Distribute.SetEnabledAsync(true);
+
             _mainActivity = this;
             base.OnCreate(savedInstanceState);
             // Set our view from the "main" layout resource
