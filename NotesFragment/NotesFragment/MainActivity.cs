@@ -22,8 +22,6 @@ namespace NotesFragment
         //TODO: Toolbar button for adding a note.
         //TODO: Toolbar button for editing a note.
         //TODO: Color solution for project.
-        //TODO: Icon for project.
-        //TODO: Splash screen for project.
         protected override void OnCreate(Bundle savedInstanceState)
         {
             AppCenter.Start("f65919ed-f2d3-4310-a9f3-fca76e53b9cb", typeof(Analytics), typeof(Crashes));
