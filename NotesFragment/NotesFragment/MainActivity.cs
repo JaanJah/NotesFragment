@@ -13,7 +13,7 @@ using Microsoft.AppCenter.Distribute;
 
 namespace NotesFragment
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme.NoActionBar", MainLauncher = true, Icon = "@drawable/notebookicon")]
     public class MainActivity : Activity
     {
         public Bundle _savedInstanceState { get; set; }
