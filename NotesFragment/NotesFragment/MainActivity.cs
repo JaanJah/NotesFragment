@@ -18,7 +18,6 @@ namespace NotesFragment
     {
         public Bundle _savedInstanceState { get; set; }
         public static MainActivity _mainActivity { get; set; }
-        //TODO: When showing note's content, it should also show title.
         //TODO: Toolbar button for adding a note.
         //TODO: Toolbar button for editing a note.
         //TODO: Color solution for project.

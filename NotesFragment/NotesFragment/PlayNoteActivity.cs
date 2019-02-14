@@ -30,8 +30,11 @@ namespace NotesFragment
             SetSupportActionBar(toolbar);
             PlayId = Intent.Extras.GetInt("current_play_id", 0);
 
-            var editText = FindViewById<EditText>(Resource.Id.contentEditText);
-            editText.Text = DatabaseService.noteList[PlayId].Note;
+            var titleText = FindViewById<EditText>(Resource.Id.titleEditText);
+            titleText.Text = DatabaseService.noteList[PlayId].Title;
+
+            var contentText = FindViewById<EditText>(Resource.Id.contentEditText);
+            contentText.Text = DatabaseService.noteList[PlayId].Note;
             //var detailsFrag = PlayNoteFragment.NewInstance(playId);
             //FragmentManager.BeginTransaction()
             //    .Add(Android.Resource.Id.Content, detailsFrag)

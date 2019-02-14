@@ -35,22 +35,35 @@ namespace NotesFragment
             }
             var notes = DatabaseService.dbConnection.GetAllNotes();
             StaticPlayId = PlayId;
+            List<string> titlesList = DatabaseService.noteList.Select(x => x.Title).ToList();
             List<string> notesList = DatabaseService.noteList.Select(x => x.Note).ToList();
-            var textView = new TextView(Activity);
+            var titleTextView = new TextView(Activity);
+            var contentTextView = new TextView(Activity);
             var padding = Convert.ToInt32(TypedValue.ApplyDimension(ComplexUnitType.Dip, 4, Activity.Resources.DisplayMetrics));
-            textView.SetPadding(padding, padding, padding, padding);
-            textView.TextSize = 24;
+
+            titleTextView.SetPadding(padding, padding, padding, padding);
+            titleTextView.TextSize = 24;
+
+            contentTextView.SetPadding(padding, padding, padding, padding);
+            contentTextView.TextSize = 24;
             try
             {
-                textView.Text = notesList[PlayId];
+                titleTextView.Text = titlesList[PlayId];
+                contentTextView.Text = notesList[PlayId];
             }
             catch
             {
-                textView.Text = notesList[0];
+                titleTextView.Text = titlesList[0];
+                contentTextView.Text = notesList[0];
             }
 
+            var linearLayout = new LinearLayout(Activity);
+            linearLayout.Orientation = Orientation.Vertical;
+            linearLayout.AddView(titleTextView);
+            linearLayout.AddView(contentTextView);
+
             var scroller = new ScrollView(Activity);
-            scroller.AddView(textView);
+            scroller.AddView(linearLayout);
 
             return scroller;
         }

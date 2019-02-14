@@ -65,10 +65,10 @@ namespace NotesFragment
                 if (playNoteFragment == null || playNoteFragment.PlayId != playId)
                 {
                     var container = Activity.FindViewById(Resource.Id.playnote_container);
-                    var quoteFrag = PlayNoteFragment.NewInstance(selectedPlayId);
+                    var noteFrag = PlayNoteFragment.NewInstance(selectedPlayId);
 
                     FragmentTransaction ft = FragmentManager.BeginTransaction();
-                    ft.Replace(Resource.Id.playnote_container, quoteFrag);
+                    ft.Replace(Resource.Id.playnote_container, noteFrag);
                     ft.Commit();
                 }
             }
