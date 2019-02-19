@@ -18,7 +18,6 @@ namespace NotesFragment
     {
         public Bundle _savedInstanceState { get; set; }
         public static MainActivity _mainActivity { get; set; }
-        //TODO: Toolbar button for adding a note.
         //TODO: Toolbar button for editing a note.
         //TODO: Color solution for project.
         //TODO: Custom dialog when new version.
@@ -53,6 +52,7 @@ namespace NotesFragment
             {
                 //Add
                 case Resource.Id.menu_add:
+                    AddNote();
                     break;
                 //Edit
                 case Resource.Id.menu_edit:
@@ -65,6 +65,14 @@ namespace NotesFragment
                     break;
             }
             return base.OnOptionsItemSelected(item);
+        }
+
+        
+        public void AddNote()
+        {
+            var emptyNote = new Notes();
+            DatabaseService.dbConnection.AddNote(emptyNote);
+            this.Recreate();
         }
 
         public void DeleteDialog()

@@ -35,6 +35,8 @@ namespace NotesFragment
 
         public void AddNote(Notes note)
         {
+            note.Title = "";
+            note.Note = "";
             db.Insert(note);
         }
 
