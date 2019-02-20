@@ -18,7 +18,9 @@ namespace NotesFragment
     {
         public Bundle _savedInstanceState { get; set; }
         public static MainActivity _mainActivity { get; set; }
-        //TODO: Toolbar button for editing a note.
+        //TODO: Bug when updating title in the same fragmentview.
+        //TODO: Fixing splash screen.
+        //TODO: Configure toolbar to be usable in every view.
         //TODO: Color solution for project.
         //TODO: Custom dialog when new version.
         protected override void OnCreate(Bundle savedInstanceState)
