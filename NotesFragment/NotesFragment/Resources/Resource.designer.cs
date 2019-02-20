@@ -2484,17 +2484,17 @@ namespace NotesFragment
 			// aapt resource value: 0x7f080039
 			public const int collapseActionView = 2131230777;
 			
-			// aapt resource value: 0x7f080095
-			public const int container = 2131230869;
+			// aapt resource value: 0x7f080093
+			public const int container = 2131230867;
 			
-			// aapt resource value: 0x7f080092
-			public const int contentEditText = 2131230866;
+			// aapt resource value: 0x7f0800a1
+			public const int contentEditText = 2131230881;
 			
 			// aapt resource value: 0x7f080066
 			public const int contentPanel = 2131230822;
 			
-			// aapt resource value: 0x7f080096
-			public const int coordinator = 2131230870;
+			// aapt resource value: 0x7f080094
+			public const int coordinator = 2131230868;
 			
 			// aapt resource value: 0x7f08006d
 			public const int custom = 2131230829;
@@ -2508,20 +2508,20 @@ namespace NotesFragment
 			// aapt resource value: 0x7f080060
 			public const int default_activity_button = 2131230816;
 			
-			// aapt resource value: 0x7f080098
-			public const int design_bottom_sheet = 2131230872;
-			
-			// aapt resource value: 0x7f08009f
-			public const int design_menu_item_action_area = 2131230879;
-			
-			// aapt resource value: 0x7f08009e
-			public const int design_menu_item_action_area_stub = 2131230878;
+			// aapt resource value: 0x7f080096
+			public const int design_bottom_sheet = 2131230870;
 			
 			// aapt resource value: 0x7f08009d
-			public const int design_menu_item_text = 2131230877;
+			public const int design_menu_item_action_area = 2131230877;
 			
 			// aapt resource value: 0x7f08009c
-			public const int design_navigation_view = 2131230876;
+			public const int design_menu_item_action_area_stub = 2131230876;
+			
+			// aapt resource value: 0x7f08009b
+			public const int design_menu_item_text = 2131230875;
+			
+			// aapt resource value: 0x7f08009a
+			public const int design_navigation_view = 2131230874;
 			
 			// aapt resource value: 0x7f080020
 			public const int disableHome = 2131230752;
@@ -2595,8 +2595,8 @@ namespace NotesFragment
 			// aapt resource value: 0x7f080000
 			public const int item_touch_helper_previous_elevation = 2131230720;
 			
-			// aapt resource value: 0x7f080094
-			public const int largeLabel = 2131230868;
+			// aapt resource value: 0x7f080092
+			public const int largeLabel = 2131230866;
 			
 			// aapt resource value: 0x7f080049
 			public const int left = 2131230793;
@@ -2643,8 +2643,8 @@ namespace NotesFragment
 			// aapt resource value: 0x7f080028
 			public const int multiply = 2131230760;
 			
-			// aapt resource value: 0x7f08009b
-			public const int navigation_header_container = 2131230875;
+			// aapt resource value: 0x7f080099
+			public const int navigation_header_container = 2131230873;
 			
 			// aapt resource value: 0x7f08003b
 			public const int never = 2131230779;
@@ -2772,14 +2772,14 @@ namespace NotesFragment
 			// aapt resource value: 0x7f080025
 			public const int showTitle = 2131230757;
 			
-			// aapt resource value: 0x7f080093
-			public const int smallLabel = 2131230867;
+			// aapt resource value: 0x7f080091
+			public const int smallLabel = 2131230865;
 			
-			// aapt resource value: 0x7f08009a
-			public const int snackbar_action = 2131230874;
+			// aapt resource value: 0x7f080098
+			public const int snackbar_action = 2131230872;
 			
-			// aapt resource value: 0x7f080099
-			public const int snackbar_text = 2131230873;
+			// aapt resource value: 0x7f080097
+			public const int snackbar_text = 2131230871;
 			
 			// aapt resource value: 0x7f080043
 			public const int snap = 2131230787;
@@ -2829,8 +2829,8 @@ namespace NotesFragment
 			// aapt resource value: 0x7f080069
 			public const int textSpacerNoTitle = 2131230825;
 			
-			// aapt resource value: 0x7f0800a0
-			public const int text_input_password_toggle = 2131230880;
+			// aapt resource value: 0x7f08009e
+			public const int text_input_password_toggle = 2131230878;
 			
 			// aapt resource value: 0x7f080014
 			public const int textinput_counter = 2131230740;
@@ -2847,8 +2847,8 @@ namespace NotesFragment
 			// aapt resource value: 0x7f080071
 			public const int titleDividerNoCustom = 2131230833;
 			
-			// aapt resource value: 0x7f080091
-			public const int titleEditText = 2131230865;
+			// aapt resource value: 0x7f0800a0
+			public const int titleEditText = 2131230880;
 			
 			// aapt resource value: 0x7f08006f
 			public const int title_template = 2131230831;
@@ -2859,8 +2859,8 @@ namespace NotesFragment
 			// aapt resource value: 0x7f08008b
 			public const int toolbar = 2131230859;
 			
-			// aapt resource value: 0x7f0800a1
-			public const int toolbar2 = 2131230881;
+			// aapt resource value: 0x7f08009f
+			public const int toolbar2 = 2131230879;
 			
 			// aapt resource value: 0x7f08003e
 			public const int top = 2131230782;
@@ -2868,8 +2868,8 @@ namespace NotesFragment
 			// aapt resource value: 0x7f08006e
 			public const int topPanel = 2131230830;
 			
-			// aapt resource value: 0x7f080097
-			public const int touch_outside = 2131230871;
+			// aapt resource value: 0x7f080095
+			public const int touch_outside = 2131230869;
 			
 			// aapt resource value: 0x7f08000f
 			public const int transition_current_scene = 2131230735;

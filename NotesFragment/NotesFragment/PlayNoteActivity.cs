@@ -35,10 +35,15 @@ namespace NotesFragment
 
             var contentText = FindViewById<EditText>(Resource.Id.contentEditText);
             contentText.Text = DatabaseService.noteList[PlayId].Note;
-            //var detailsFrag = PlayNoteFragment.NewInstance(playId);
-            //FragmentManager.BeginTransaction()
-            //    .Add(Android.Resource.Id.Content, detailsFrag)
-            //    .Commit();
+            if (titleText.Text != "")
+            {
+                titleText.Hint = "";
+            }
+            if (contentText.Text != "")
+            {
+                contentText.Hint = "";
+            }
+
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

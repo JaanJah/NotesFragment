@@ -33,6 +33,11 @@ namespace NotesFragment
             db = new SQLiteConnection(dbPath);
         }
 
+        public Notes GetOneNote(int id)
+        {
+            return db.Table<Notes>().Where(x => x.Id == id).FirstOrDefault();
+        }
+
         public void AddNote(Notes note)
         {
             note.Title = "";
@@ -40,8 +45,12 @@ namespace NotesFragment
             db.Insert(note);
         }
 
-        public void UpdateNote(Notes note)
+        public void UpdateNote(int id, string title, string content)
         {
+            var note = new Notes();
+            note.Id = id;
+            note.Title = title;
+            note.Note = content;
             db.Update(note);
         }
 
