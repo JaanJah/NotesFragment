@@ -29,7 +29,7 @@ namespace NotesFragment
 
         public void CreateDatabase()
         {
-            string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "notesDb.db3");
+            string dbPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "notesDb01.db3");
             db = new SQLiteConnection(dbPath);
         }
 
@@ -73,11 +73,8 @@ namespace NotesFragment
             if (db.Table<Notes>().Count() == 0)
             {
                 var newNotes = new Notes();
-                newNotes.Title = "noteTitle1";
-                newNotes.Note = "noteContent1";
-                db.Insert(newNotes);
-                newNotes.Title = "noteTitle2";
-                newNotes.Note = "noteContent2";
+                newNotes.Title = "Example note";
+                newNotes.Note = "Hello! This is an example note.";
                 db.Insert(newNotes);
             }
         }

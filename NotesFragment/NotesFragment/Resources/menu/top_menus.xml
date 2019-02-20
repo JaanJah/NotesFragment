@@ -9,12 +9,6 @@
        app:showAsAction="always"
        android:title="Add" />
   <item
-       android:id="@+id/menu_edit"
-       android:icon="@mipmap/baseline_create_black_18dp"
-       app:showAsAction="always"
-       android:showAsAction="always"
-       android:title="Edit" />
-  <item
        android:id="@+id/menu_delete"
        app:showAsAction="always"
        android:showAsAction="always"

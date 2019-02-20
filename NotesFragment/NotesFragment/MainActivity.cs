@@ -54,9 +54,6 @@ namespace NotesFragment
                 case Resource.Id.menu_add:
                     AddNote();
                     break;
-                //Edit
-                case Resource.Id.menu_edit:
-                    break;
                 //Delete
                 case Resource.Id.menu_delete:
                     DeleteDialog();
